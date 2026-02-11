@@ -12,14 +12,18 @@ const Jobs = () => {
     const fetchJobs = async () => {
       try {
         const token = localStorage.getItem('token');  // Retrieve token if authentication is needed
+        const headers = {
+          'Content-Type': 'application/json',
+        };
+        if (token) {
+          headers['Authorization'] = `Bearer ${token}`;
+        }
+
         const response = await fetch('http://localhost:5000/api/jobs', {
           method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,  // Attach token to header if needed
-          },
+          headers: headers,
         });
-        
+
         if (response.ok) {
           const data = await response.json();
           setJobs(data);

@@ -14,12 +14,12 @@ const Home = () => {
     const fetchCompanies = async () => {
       try {
         const token = localStorage.getItem('token');
-        if (!token) {
-          console.error('No token found');
-          setError('No authentication token found. Please log in again.');
-          setLoading(false);
-          return;
-        }
+        // if (!token) {
+        //   console.error('No token found');
+        //   setError('No authentication token found. Please log in again.');
+        //   setLoading(false);
+        //   return;
+        // }
 
         const response = await fetch('http://localhost:5000/api/companies', {
           method: 'GET',

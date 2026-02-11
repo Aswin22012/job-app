@@ -29,7 +29,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/auth', auth);  // This will handle both signup and login routes
 
 // Protected API route to fetch companies
-app.get("/api/companies", authenticateJWT, async (req, res) => {
+app.get("/api/companies", async (req, res) => {
   try {
     const companies = await mongoose.connection.collection("company").find().toArray();
     console.log(companies); // Log to check the fetched data
@@ -43,7 +43,7 @@ app.get("/api/companies", authenticateJWT, async (req, res) => {
 
 
 // Protected API route to fetch jobs
-app.get("/api/jobs", authenticateJWT, async (req, res) => {
+app.get("/api/jobs", async (req, res) => {
   try {
     const jobs = await mongoose.connection.collection("Jobs").find().toArray();
     res.status(200).json(jobs);

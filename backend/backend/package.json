@@ -14,7 +14,7 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "nodemon": "^3.1.7"
+    "nodemon": "^3.1.11"
   },
   "scripts": {
     "start": "nodemon app.js"
