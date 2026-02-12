@@ -25,7 +25,7 @@ const RegistrationPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const form = new FormData();
     form.append('username', formData.username);
     form.append('email', formData.email);
@@ -36,14 +36,14 @@ const RegistrationPage = () => {
     form.append('jobType', formData.jobType);
     form.append('educationLevel', formData.educationLevel);
     form.append('resume', formData.resume);
-  
+
     try {
       const response = await axios.post('http://localhost:5000/api/registration', form, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      
+
       if (response.status === 200) {
         setSuccessMessage('Registration Successful!');
         setErrorMessage('');
@@ -57,7 +57,7 @@ const RegistrationPage = () => {
   };
   const handleFileChange = (e) => {
     setFormData({ ...formData, resume: e.target.files[0] });
-};
+  };
 
 
   return (
@@ -189,7 +189,7 @@ const RegistrationPage = () => {
             />
           </div>
 
-          <button type="submit" className="registration-btn">Submit</button>
+          <button type="submit" className="registration-btn">Register Now</button>
         </form>
       </div>
     </div>
